@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Functions</title>
+</head>
+<body>
+  <script>
+    let choices = ['rock', 'paper', 'scissors'];
+
+    function computerMove () {
+      choices = choices[Math.floor(Math.random() * 3)];
+      return choices;
+    }
+    console.log(computerMove());
+  </script>
+</body>
+</html>

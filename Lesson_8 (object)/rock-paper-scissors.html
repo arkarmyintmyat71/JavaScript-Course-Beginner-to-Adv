@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <p>Rock Paper Scissors</p>
+
+  <button onclick="playGame('rock')">Rock</button>
+  <button onclick="playGame('paper')">Paper</button>
+  <button onclick="playGame('scissors')">Scissors</button>
+  <button onclick="playGame('restart')">Restart</button>
+
+  <script>
+    const choices = ['rock', 'paper', 'scissors'];
+
+    // Load result from localStorage or initialize
+    let result = JSON.parse(localStorage.getItem('result')) || {
+      win: 0,
+      tie: 0,
+      lose: 0
+    };
+
+    function playGame(playerChoice) {
+      if (playerChoice === 'restart') {
+        result = { win: 0, tie: 0, lose: 0 };
+        localStorage.setItem('result', JSON.stringify(result));
+        alert(`Results reset.\nWin: ${result.win}, Tie: ${result.tie}, Lose: ${result.lose}`);
+        return;
+      }
+
+      const computerChoice = choices[Math.floor(Math.random() * 3)];
+      console.log(`Computer chose: ${computerChoice}`);
+
+      if (playerChoice === computerChoice) {
+        result.tie++;
+        alert(`It's a tie!\nWin: ${result.win}, Tie: ${result.tie}, Lose: ${result.lose}`);
+      } else if (
+        (playerChoice === 'rock' && computerChoice === 'scissors') ||
+        (playerChoice === 'paper' && computerChoice === 'rock') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        result.win++;
+        alert(`You win!\nWin: ${result.win}, Tie: ${result.tie}, Lose: ${result.lose}`);
+      } else {
+        result.lose++;
+        alert(`You lose!\nWin: ${result.win}, Tie: ${result.tie}, Lose: ${result.lose}`);
+      }
+
+      localStorage.setItem('result', JSON.stringify(result));
+    }
+  </script>
+</body>
+</html>

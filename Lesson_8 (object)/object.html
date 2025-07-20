@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Objects</title>
+</head>
+<body>
+  <script>
+    const product = {
+      name: 'socks',
+      price: 1090
+
+    };
+    console.log(typeof product);
+    console.log(typeof product.name);
+    console.log(product.name);
+    console.log(product.price);
+
+    product.name = 'knife';
+    console.log(product);
+
+    //Add data in the object
+    product.date = 1000;
+    console.log(product);
+
+    //show Json file
+    console.log(product);
+    console.log(JSON.stringify(product));
+    
+    //convert to object
+    jsonString = JSON.stringify(product);
+    console.log(JSON.parse(jsonString));
+  </script>
+</body>
+</html>
