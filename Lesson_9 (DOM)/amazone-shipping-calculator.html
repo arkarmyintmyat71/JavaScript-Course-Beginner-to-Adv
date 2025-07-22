@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Amazon Shipping Calculator</title>
+</head>
+<body>
+  <p>Amazon Shipping Calculator</p>
+  <p>Order under $40 = + $10 shipping.</p>
+  <p>Order over $40 = FREE shipping.</p>
+
+  <p>
+    <input id="cost" placeholder="Cost of order">
+    <button onclick="calculate(document.getElementById('cost').value)">Calculator</button>
+  </p>
+  <p class="result"></p>
+  
+  <script>
+    function calculate (value) {
+      value = parseFloat(value);
+      let total;
+      if (value < 40) {
+        total = value + 10;
+        document.querySelector('.result').innerHTML = total;
+      } else {
+        document.querySelector('.result').innerHTML = value;
+      }
+    }
+  </script>
+</body>
+</html>

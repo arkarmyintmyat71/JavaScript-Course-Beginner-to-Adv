@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+  <p>Rock Paper Scissors</p>
+  <button onclick="playGame('rock')" class="rock">Rock</button>
+  <button onclick="playGame('paper')" class="paper">Paper</button>
+  <button onclick="playGame('scissors')" class="scissors">Scissors</button>
+  <p class="choose"></p>
+  <p class="return"></p>
+  <p class="score-result"></p>
+  <button onclick="playGame('restart')" class="restart">Reset Score</button>
+  
+  <script>
+
+    const choices = ['rock', 'paper', 'scissors'];
+    playerChoice= '';
+    let result = JSON.parse(localStorage.getItem('result')) || {
+      win: 0,
+      lose: 0,
+      tie: 0
+    };
+      
+    function playGame (playerChoice) {
+      const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+      function updateScoreElement () {
+        document.querySelector('.choose').innerHTML = `Your choose: ${playerChoice}, Computer choose: ${computerChoice}`;
+        document.querySelector('.score-result').innerHTML = 
+          `Wins: ${result.win}, Losses: ${result.lose}, Ties: ${result.tie}`;
+      }
+
+      if (playerChoice === 'restart') {
+        document.querySelector('.choose').innerHTML = '';
+        document.querySelector('.return').innerHTML = "Your scores are reseted.";
+        result = {win:0, lose: 0, tie: 0};
+        localStorage.setItem('result', JSON.stringify(result));
+        document.querySelector('.score-result').innerHTML = 
+          `Wins: ${result.win}, Losses: ${result.lose}, Ties: ${result.tie}`;
+
+      } else if (playerChoice === computerChoice) {
+        result.tie++;
+        document.querySelector('.return').innerHTML = 'It is tie!';
+        updateScoreElement();
+
+      } else if (
+        (playerChoice === 'rock' && computerChoice === 'scissors') ||
+        (playerChoice === 'paper' && computerChoice === 'rock') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        result.win++;
+        document.querySelector('.return').innerHTML = 'You win.';
+        updateScoreElement();
+
+      } else {
+        result.lose++;
+        document.querySelector('.return').innerHTML = 'You lose.';
+        updateScoreElement();
+
+      }
+      localStorage.setItem('result', JSON.stringify(result));
+    }
+    
+  </script>
+</body>
+</html>
