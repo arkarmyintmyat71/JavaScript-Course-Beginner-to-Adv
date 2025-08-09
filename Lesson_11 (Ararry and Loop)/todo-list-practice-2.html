@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Todo List Practice 2</title>
+  <style>
+    p {
+      font-family: Arial;
+    }
+  </style>
+</head>
+<body>
+  <p>Todo List Practice 2</p>
+  <input type="text" placeholder="Todo Name" id="inputElement">
+  <button onclick="addName();">Add</button>
+  <div class="js-show"></div>
+  <script>
+    let elementList = [];
+    function addName() {
+      const inputElement = document.getElementById('inputElement').value.trim();
+      if (inputElement !== '') {
+        elementList.push(inputElement);
+      }
+      let todoHTML = '';
+      for (let i = 0; i < elementList.length; i++) {
+        todoHTML += `<p>${elementList[i]}</p>`;
+      }
+      document.querySelector('.js-show').innerHTML = todoHTML;
+
+    }
+  </script>
+</body>
+</html>

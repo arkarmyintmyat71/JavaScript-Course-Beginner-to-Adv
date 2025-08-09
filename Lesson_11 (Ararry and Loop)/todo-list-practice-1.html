@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Todo List Practice 1</title>
+</head>
+
+<body>
+  <p>Todo List Practice 1</p>
+  <input type="text" placeholder="Todo name" id="add-name">
+  <button onclick="addName()" class="add">Add</button>
+  <script>
+    let nameList = [];
+    let name = '';
+    function addName() {
+      const inputElemet = document.getElementById('add-name');
+      const name = inputElemet.value.trim();
+      if (name !== '') {
+        nameList.push(name);
+        console.log(nameList);
+      }
+    }
+  </script>
+</body>
+</html> 
