@@ -28,9 +28,15 @@ function showList() {
     todoHTML += `
       <div>${todoList[i].name}</div>
       <div>${todoList[i].date}</div> 
-      <button onclick="clearItem(${i})" class="delete-btn">Delete</button>
+      <button class="delete-btn">Delete</button>
     `;
   }
+  document.querySelectorAll('delete-btn')
+    .forEach((deleteButton, index) => {
+      deleteButton.addEventListener('click',() => {
+        clearItem(i);
+      });
+    });
   document.querySelector('.js-show').innerHTML = todoHTML;
 }
 

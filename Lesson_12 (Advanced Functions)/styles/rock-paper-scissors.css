@@ -1,0 +1,35 @@
+body {
+  font-family: Arial;
+  background-color: black;
+  color: white;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.move-emoji {
+  height: 50px;
+}
+.move-button {
+  border: 3px solid white;
+  border-radius: 60px;
+  background-color: transparent;
+  width: 120px;
+  height: 120px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.restart,
+.auto-play {
+  font-size: large;
+  padding: 10px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.result-state {
+  font-weight: bolder;
+  font-size: 30px;
+}

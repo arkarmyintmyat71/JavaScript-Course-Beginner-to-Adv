@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Advanced Function</title>
+</head>
+<body>
+  <button class="js-click">Click</button>
+  <script>
+
+    const buttonElement = document.querySelector('.js-click');
+    const eventListener = ()=>{
+      console.log('clicked');
+    };
+    buttonElement.addEventListener('click', eventListener);
+
+    buttonElement.removeEventListener('click', eventListener);
+    buttonElement.addEventListener(
+      'click', () => {
+        console.log("clicked2");
+      }
+    );
+
+    /*function greeting1() {
+      console.log("hello!");
+    }
+    greeting1();
+
+    const greeting2 = function() {
+      console.log("world!");
+    };
+    greeting2();
+
+    const obj = {
+      num: 3,
+      greeting3: function greeting() {
+        console.log("Arkar");
+      }
+    };
+    obj.greeting3();
+
+    function greeting4(param) {
+      console.log(param);
+    }
+    greeting4("Hello World!");
+
+    function greeting5(param) {
+      param();
+    }
+    greeting5(function() {
+      console.log("Arkar Myint Myat");
+    });
+    
+    console.log(typeof greeting1);
+    console.log(typeof greeting2);*/
+
+    /*setTimeout(function(){
+      console.log('Asynchronous codes');
+      console.log('timeout');
+    },3000);
+
+    console.log("synchronous codes");*/
+
+    /*[
+    'make dinner',
+    'wash dishes',
+    'watch YouTube'
+    ].forEach(function(value,index) {
+      console.log(index);
+      console.log(value);
+    });*/
+
+    /*function simpleFunction(){
+      console.log("Simple Function");
+    }
+    simpleFunction();
+
+    const regularFunction = function() {
+      console.log("Regular Function");
+    }
+    regularFunction();
+
+    const arrowFunction = () => {
+      console.log("Arrow Function");
+    }
+    arrowFunction();
+
+    const paramArrowFunction = (param) => {
+      console.log(param +2);
+    }
+    paramArrowFunction(1);
+
+    const oneParamArrowFunction = param => {
+      console.log(param + 5);
+    }
+    oneParamArrowFunction(2);
+
+    const oneLineArrowFunction = () => console.log(2+3);
+    oneLineArrowFunction();*/
+    
+    console.log([1,-3,5].filter((value, index) => {
+      //return boolean;
+      return value >= 0;
+    }));
+    
+    console.log([1,1,3].map((value, index) =>{
+      return value + 10;
+    }));
+  
+    console.log([1,3,2].map(value => value*3));
+  </script>
+</body>
+</html>
