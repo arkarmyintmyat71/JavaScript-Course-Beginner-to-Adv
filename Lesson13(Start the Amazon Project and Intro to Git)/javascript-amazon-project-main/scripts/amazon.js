@@ -1,3 +1,6 @@
+import { cart,addToCart } from '../data/cart.js';
+import { products } from '../data/products.js';
+
 let productHtml = '';
 products.forEach((product) => {
   productHtml += `
@@ -44,10 +47,27 @@ products.forEach((product) => {
           Added
         </div>
 
-        <button class="add-to-cart-button button-primary">
+        <button class="add-to-cart-button button-primary js-add-button" data-product-name = "${product.name}">
           Add to Cart
         </button>
       </div>
   `;
 });
 document.querySelector('.js-product-grid').innerHTML = productHtml;
+
+function updateCart() {
+  let cartQuantity = 0;
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+  document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+}
+
+document.querySelectorAll('.js-add-button')
+  .forEach((button) => {
+    button.addEventListener('click', ()=> {
+      const productId = button.dataset.productId;
+      addToCart(productId);
+      updateCart();
+    });
+  });
