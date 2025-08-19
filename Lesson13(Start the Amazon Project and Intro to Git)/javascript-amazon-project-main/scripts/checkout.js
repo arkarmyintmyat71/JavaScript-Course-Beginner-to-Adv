@@ -5,7 +5,7 @@ import { priceFormat } from "./utils/priceFormat.js";
 let productHtml='';
 let matchingItem;
 cart.forEach((cartItem)=>{
-  let productId = cartItem.id;
+  let productId = cartItem.productId;
 
   products.forEach((product)=>{
     if(product.id === productId){
@@ -31,13 +31,12 @@ cart.forEach((cartItem)=>{
               </div>
               <div class="product-quantity">
                 <span>
-                  Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+                  Quantity: <span class="quantity-label">${matchingItem.quantity}</span>
                 </span>
                 <span class="update-quantity-link link-primary">
                   Update
                 </span>
-                <span class="delete-quantity-link link-primary js-delete-quantity" data-product-id= "${matchingItem.id}"
-                data-cart-quantity="${cartItem.quantity}">
+                <span class="delete-quantity-link link-primary js-delete-quantity" data-product-id= "${matchingItem.id}">
                   Delete
                 </span>
               </div>
