@@ -27,7 +27,7 @@ products.forEach((product) => {
           $${priceFormat(product.priceCents)}
         </div>
 
-        <div class="product-quantity-container js-product-quantity-container">
+        <div class="product-quantity-container">
           <select>
             <option selected value="1">1</option>
             <option value="2">2</option>
